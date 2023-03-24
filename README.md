@@ -5,6 +5,9 @@
 - ## [Project Deploy 🦸](https://assembly-of-heroes-vercel-iks0xr0xs-brunossales.vercel.app/)
 
 - ## [See the project video](https://ufcbr-my.sharepoint.com/:v:/g/personal/bruno_particular25_alu_ufc_br/EWbpwU6LHS9AjH1TuWr9vHEB0lGt-sGmEC4cGm_4ZsrxaQ?e=rYNAwm)
+
+- ## [Official branch link of the project](https://github.com/brunossales/assembly-of-heroes/tree/bruno_saless)
+
 - ## This is a project for any audience that likes the community or is just as curious as the author.
 
 - ## Project using next and typescript
@@ -15,7 +18,7 @@
 
 - ## Tests in Jest and @testing-library/react
 
-  - ## Tests in @core/application/ and components/
+  - ## Tests in @core/application/, components/ and @core/infra/gateways
 
 - ## Learning new technologies during the course of the project:
 
