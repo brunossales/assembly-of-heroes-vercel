@@ -16,7 +16,7 @@ export type Comics = {
     ];
 }
 
-export type HeroProps = {
+export type HeroEntity = {
     id: number;
     name: string;
     description: string;
@@ -24,27 +24,3 @@ export type HeroProps = {
     thumbnail: Thumbnail;
     comics: Comics;
 }
-  
-  export class Hero {
-    constructor(public props: HeroProps) { }
-  
-    get id() {
-      return this.props.id;
-    }
-  
-    get name() {
-      return this.props.name;
-    }
-  
-    get description() {
-      return this.props.description;
-    }
-
-    get comics(): Comics {
-      return this.comics;
-    }
-  
-    get thumbnail() {
-      return this.props.thumbnail;
-    }
-  }
