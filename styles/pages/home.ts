@@ -65,4 +65,9 @@ export const CardsContainer = styled("div", {
   gridGap: "15px",
 
   marginBottom: "20px",
+
+  '@bp1': {
+    display: "grid",
+    gridTemplateColumns: "repeat(1, 1fr)",
+  }
 });
