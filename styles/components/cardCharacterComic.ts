@@ -22,7 +22,7 @@ export const Container = styled("div", {
     transition: "transform 0.5s",
 
     "&:hover": {
-      transform: "rotate(-20deg)",
+      transform: 'translate(5px, 12px)'
     },
 
     "@bp1": {
@@ -37,7 +37,7 @@ export const Container = styled("div", {
     transition: "transform 0.5s",
 
     "&:hover": {
-      transform: "rotate(20deg)",
+      transform: 'translate(5px, 12px)'
     },
   },
 
@@ -48,7 +48,7 @@ export const Container = styled("div", {
     width: 500,
     textAlign: "center",
     "&:hover": {
-      transform: "rotate(-20deg)",
+      transform: 'translate(5px, 12px)'
     },
   },
 });
@@ -67,10 +67,14 @@ export const ButtonBack = styled("button", {
   borderRadius: "10px",
   background: "$main",
 
-  transition: "background 0.3s",
+  fontFamily: 'Oswald',
+
+  transition: "all 0.3s",
 
   "&:hover": {
     background: "$text",
+    transform: 'translate(15px)',
+
   },
 
   "@bp1": {

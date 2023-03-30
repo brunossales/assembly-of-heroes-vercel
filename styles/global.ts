@@ -10,9 +10,6 @@ export const globalStyles = globalCss({
         // height: '100vh',
         background: '$background',
         color: '$text',
-    },
-    'body, input, textarea, button': {
         fontFamily: 'Oswald',
-        fontWeight: 400
-    }
+    },
 });

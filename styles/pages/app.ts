@@ -8,6 +8,7 @@ export const Container = styled('div', {
 export const Header = styled("header", {
     padding: '2rem 0',
     margin: '0 auto',
+    fontWeight: 'bolder',
 
     width: '100%',
     background: '$backgroundHeader',

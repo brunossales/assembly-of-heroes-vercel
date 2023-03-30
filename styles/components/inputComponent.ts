@@ -6,6 +6,8 @@ export const Container = styled("div", {
   height: 30,
   borderRadius: 5,
   border: "3px solid white",
+  transition: "all 0.2s",
+  
 
   margin: 20,
   padding: 5,
@@ -26,6 +28,6 @@ Container.defaultProps = {
 export const InputText = styled("input", {
   outline: "none",
   border: "none",
-
+  font: 'message-box',
   padding: "0 10px",
 });
