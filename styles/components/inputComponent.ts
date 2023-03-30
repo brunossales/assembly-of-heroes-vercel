@@ -1,28 +1,31 @@
 import { styled } from "..";
 
 export const Container = styled("div", {
-    background: '$white',
-    width: 300,
-    height: 30,
-    borderRadius: 5,
-    border: '3px solid white',
-    
-    margin: 20,
-    padding: 5,
-    variants: {
-        focus: {
-            true: {
-                border: '3px solid purple',
-            }
-        }
-      }
+  background: "$white",
+  width: 300,
+  height: 30,
+  borderRadius: 5,
+  border: "3px solid white",
+
+  margin: 20,
+  padding: 5,
+  variants: {
+    focus: {
+      true: {
+        border: "3px solid purple",
+      },
+    },
+  },
+  "@bp1": {
+    width: '80vw',
+  },
 });
 Container.defaultProps = {
-    focus: false,
+  focus: false,
 };
 export const InputText = styled("input", {
-    outline: 'none',
-    border: 'none',
+  outline: "none",
+  border: "none",
 
-    padding: '0 10px'
-  })
+  padding: "0 10px",
+});
