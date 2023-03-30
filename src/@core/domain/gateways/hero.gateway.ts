@@ -1,8 +1,8 @@
 import { Comic } from "../entities/Comic";
-import { Hero } from "../entities/Hero";
+import { HeroEntity, HeroEntityAll } from "../entities/Hero";
 
 export interface HeroGateway {
-    findAll(): Promise<Hero[]>;
-    findById(id: Number): Promise<Hero>;
+    findAll(): Promise<HeroEntityAll>;
+    findById(id: Number): Promise<HeroEntity>;
     findComics(id: Number): Promise<Comic[]>;
 }

@@ -24,3 +24,16 @@ export type HeroEntity = {
     thumbnail: Thumbnail;
     comics: Comics;
 }
+
+export type HeroEntityAll = {
+    total: number;
+    results: {
+        id: number;
+        name: string;
+        description: string;
+        resourceURI: string;
+        thumbnail: Thumbnail;
+        comics: Comics;
+    }[];
+
+}

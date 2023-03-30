@@ -5,7 +5,7 @@ import { useRequest } from '../contexts/requests';
 
 import CardHero from '../components/CardHero';
 import { Input } from '../components/Input';
-import { HeroEntity } from '../@core/domain/entities/Hero';
+import { HeroEntityAll } from '../@core/domain/entities/Hero';
 import { 
   Button, 
   CardsContainer, 
@@ -24,16 +24,17 @@ function Home() {
 
   //DataAndSearch vai ser onde vou armazenar o meu data de Heroes
   //E caso alguem digite ele pesquisa no array o heroi com aquele nome
-  const dataAndSearch: HeroEntity[] = useMemo(() => {
-    if (stringPattern) {
-      const search = data?.filter((hero) =>
-        hero.name.toLowerCase().includes(stringPattern.toLowerCase())
-      );
-      return search ? search : [];
-    }
-    return data ? data : [];
-  }, [stringPattern, data]);
- 
+  // const dataAndSearch = useMemo(() => {
+  //   if (stringPattern) {
+  //     const search = data?.results.filter((hero) =>
+  //       hero.name.toLowerCase().includes(stringPattern.toLowerCase())
+  //     );
+  //     return search ? search : [];
+  //   }
+  //   return data ? data : [];
+  // }, [stringPattern, data]);
+  // console.log(data);
+  
   return (
     <>
       {isLoading ? <ContainerLoading>Loading...</ContainerLoading>
@@ -52,7 +53,7 @@ function Home() {
         </PaginationContainer>
         <Input placeholder='Search by name' onChange={(event) => setStringPattern(event.target.value)}/>
         <CardsContainer>
-          {dataAndSearch?.map((hero) => (
+          {data?.results?.map((hero) => (
             <Link
               key={hero.id}
               href={`/comic/${hero.id}`}
