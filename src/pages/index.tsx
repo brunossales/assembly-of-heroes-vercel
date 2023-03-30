@@ -5,7 +5,7 @@ import { useRequest } from '../contexts/requests';
 
 import CardHero from '../components/CardHero';
 import { Input } from '../components/Input';
-import { Hero } from '../@core/domain/entities/Hero';
+import { HeroEntity } from '../@core/domain/entities/Hero';
 import { 
   Button, 
   CardsContainer, 
@@ -24,7 +24,7 @@ function Home() {
 
   //DataAndSearch vai ser onde vou armazenar o meu data de Heroes
   //E caso alguem digite ele pesquisa no array o heroi com aquele nome
-  const dataAndSearch: Hero[] = useMemo(() => {
+  const dataAndSearch: HeroEntity[] = useMemo(() => {
     if (stringPattern) {
       const search = data?.filter((hero) =>
         hero.name.toLowerCase().includes(stringPattern.toLowerCase())

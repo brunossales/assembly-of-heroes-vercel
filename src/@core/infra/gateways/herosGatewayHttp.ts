@@ -1,6 +1,6 @@
 import { OrderBy } from "../../application/Hero/listHeros.useCase";
 import { Comic } from "../../domain/entities/Comic";
-import { Hero } from "../../domain/entities/Hero";
+import { HeroEntity } from "../../domain/entities/Hero";
 import { HeroGateway } from "../../domain/gateways/hero.gateway";
 import { HttpGateway } from "../../gateway/http";
 import { HttpResponse } from "../../protocols/httpClient";
@@ -9,7 +9,7 @@ import { HttpResponse } from "../../protocols/httpClient";
 //meus paramtros e esperando o retorno
 export class HeroHttpGateway implements HeroGateway{
     constructor(private http: HttpGateway, private endpoint: string, private apiKey: string, private limit: number, private orderBy: OrderBy, private offset: number) {}
-    async findAll(): Promise<Hero[]> {
+    async findAll(): Promise<HeroEntity[]> {
          const response: HttpResponse = await this.http.request({
              method: 'get',
              url: `${this.endpoint}/characters`,
@@ -21,7 +21,7 @@ export class HeroHttpGateway implements HeroGateway{
             }});
          return response.data.data.results;
     }
-    async findById(id: Number): Promise<Hero> {
+    async findById(id: Number): Promise<HeroEntity> {
         const response: HttpResponse = await this.http.request({
             method: 'get',
             url: `${this.endpoint}/characters/${id}`,
