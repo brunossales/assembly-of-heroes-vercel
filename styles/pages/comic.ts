@@ -8,7 +8,7 @@ export const Container = styled("div", {
     height: '100%',
     scrollSnapType: 'none',
 
-    padding: '30px 0'
+    padding: '30px 0',
 })
 
 export const ContainerLoading = styled("div", {
