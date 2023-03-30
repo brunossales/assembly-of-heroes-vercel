@@ -16,7 +16,7 @@ function CardHero({ name, thumbnail }: props) {
     }, [thumbnail]);
 
     return (
-        <Container >
+        <Container>
             <Image
                 height={280}
                 width={280}
