@@ -5,4 +5,5 @@ export interface HeroGateway {
     findAll(): Promise<HeroEntityAll>;
     findById(id: Number): Promise<HeroEntity>;
     findComics(id: Number): Promise<Comic[]>;
+    nameStartsWith(): Promise<HeroEntity[]>;
 }

@@ -7,7 +7,7 @@ import { HeroHttpGateway } from "../../infra/gateways/herosGatewayHttp";
 //no caso de eu querer mudar algo em uma request, mudar apenas nela e não em todas
 export function FactoryMakeListUseCase(offset = 0) {
     const httpGateway = new AxiosHttpGateway();
-    const heroGateway = new HeroHttpGateway(httpGateway, String(process.env.NEXT_PUBLIC_BASEURL), String(process.env.NEXT_PUBLIC_PUBLICKEY), 12, 'name', offset);
+    const heroGateway = new HeroHttpGateway(httpGateway, String(process.env.NEXT_PUBLIC_BASEURL), String(process.env.NEXT_PUBLIC_PUBLICKEY), 12, 'name', offset, '');
     const useCase = new ListHeroUseCase(heroGateway);
 
     return useCase;

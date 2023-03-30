@@ -8,7 +8,7 @@ import { HttpResponse } from "../../protocols/httpClient";
 //Criação do gateway de Hero, onde estou fazendo o request para a api com os 
 //meus paramtros e esperando o retorno
 export class HeroHttpGateway implements HeroGateway{
-    constructor(private http: HttpGateway, private endpoint: string, private apiKey: string, private limit: number, private orderBy: OrderBy, private offset: number) {}
+    constructor(private http: HttpGateway, private endpoint: string, private apiKey: string, private limit: number, private orderBy: OrderBy, private offset: number, private nameStartWith: string) {}
     async findAll(): Promise<HeroEntityAll> {
          const response: HttpResponse = await this.http.request({
              method: 'get',
@@ -21,6 +21,18 @@ export class HeroHttpGateway implements HeroGateway{
             }});
          return response.data.data;
     }
+    async nameStartsWith(): Promise<HeroEntity[]> {
+        const response: HttpResponse = await this.http.request({
+            method: 'get',
+            url: `${this.endpoint}/characters`,
+            params: { 
+               apikey: this.apiKey,
+               limit: String(this.limit),
+               offset: String(this.offset),
+               nameStartsWith: this.nameStartWith,
+           }});
+        return response.data.data;
+   }
     async findById(id: Number): Promise<HeroEntity> {
         const response: HttpResponse = await this.http.request({
             method: 'get',

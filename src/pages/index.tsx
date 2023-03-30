@@ -1,11 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 import { useRequest } from '../contexts/requests';
+import { useHeroByName } from '../hooks/useHeroByName';
 
 import CardHero from '../components/CardHero';
 import { Input } from '../components/Input';
-import { HeroEntityAll } from '../@core/domain/entities/Hero';
+
 import { 
   Button, 
   CardsContainer, 
@@ -16,7 +17,6 @@ import {
 
 
 function Home() {
-  // const [offset, setOffSet] = useState(0);
   const [stringPattern, setStringPattern] = useState('');
 
   //usando meu contexto e hook criado por mim

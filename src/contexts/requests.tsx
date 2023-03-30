@@ -6,7 +6,7 @@ import {
 } from "react";
 import { useQuery } from "react-query";
 
-import { Hero } from "../@core/domain/entities/Hero";
+import { HeroEntityAll } from "../@core/domain/entities/Hero";
 import { FactoryMakeListUseCase } from "../@core/factory/factoryListAll/FactoryMakeListHeroUseCase";
 
 interface RequestContextData {
@@ -14,7 +14,7 @@ interface RequestContextData {
     handleSetOffset: (value: number) => void;
     error: any;
     isLoading: boolean;
-    data: Hero[] | undefined;
+    data: HeroEntityAll | undefined;
 }
 
 interface RequestProviderProps {
