@@ -20,5 +20,11 @@ export const {
             text: '#9c42cc',
             buttons: '#c79fdd'
         }
+        
+    },
+    media: {
+        bp1: '(max-width: 640px)',
+        bp2: '(min-width: 768px)',
+        bp3: '(min-width: 1024px)',
     }
 });
