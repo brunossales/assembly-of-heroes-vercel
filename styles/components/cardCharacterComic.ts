@@ -1,84 +1,106 @@
 import { styled } from "..";
 
-export const Container = styled('div', {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+export const Container = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
 
-    gap: '20px',
+  gap: "20px",
 
-    borderRadius: '10px',
-    cursor: 'pointer',
+  borderRadius: "10px",
+  cursor: "pointer",
 
-    'img': {
-        borderRadius: '10px',
-        background: '$white',
-        padding: '10px',
-        transition: 'transform 0.5s',
+  "@bp1": {
+    overflowX: "hidden",
+  },
 
-        '&:hover': {
-            transform: 'rotate(-20deg)',
-        }
+  img: {
+    borderRadius: "10px",
+    background: "$white",
+    padding: "10px",
+    transition: "transform 0.5s",
 
+    "&:hover": {
+      transform: "rotate(-20deg)",
     },
 
-    'h3': {
-        color: '$main',
-        fontSize: '2rem',
-        transition: 'transform 0.5s',
-
-        '&:hover': {
-            transform: 'rotate(20deg)',
-        }
+    "@bp1": {
+      width: "70vw",
+      height: 200,
     },
+  },
 
-    'h4': {
-        color: '$text',
-        fontSize: '1.5rem',
-        transition: 'transform 0.5s',
-        width: 500,
-        textAlign: 'center',
-        '&:hover': {
-            transform: 'rotate(-20deg)',
-        }
-    }
+  h3: {
+    color: "$main",
+    fontSize: "2rem",
+    transition: "transform 0.5s",
+
+    "&:hover": {
+      transform: "rotate(20deg)",
+    },
+  },
+
+  h4: {
+    color: "$text",
+    fontSize: "1.5rem",
+    transition: "transform 0.5s",
+    width: 500,
+    textAlign: "center",
+    "&:hover": {
+      transform: "rotate(-20deg)",
+    },
+  },
 });
 
 export const ButtonBack = styled("button", {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 
-    border: 'none',
+  border: "none",
 
-    fontSize: '1rem',
-    cursor: 'pointer',
+  fontSize: "1rem",
+  cursor: "pointer",
 
-    padding: '1rem 3rem',
-    borderRadius: '10px',
-    background: '$main',
+  padding: "1rem 3rem",
+  borderRadius: "10px",
+  background: "$main",
 
-    transition: "background 0.3s",
+  transition: "background 0.3s",
 
-    "&:hover": {
-        background: "$text",
-      },
-})
+  "&:hover": {
+    background: "$text",
+  },
+
+  "@bp1": {
+    padding: "0.7rem 3rem",
+  },
+});
 
 export const CarrouselContainer = styled("div", {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    height: '400px',
-    maxWidth: '800px',
-    overflow: 'auto',
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "row",
+  height: "400px",
+  maxWidth: "800px",
+  overflowX: "auto",
+  overflowY: 'none',
 
-    margin: '20px 0',
+  margin: "20px 0",
+  padding: 10,
 
-    gap: '15px',
+  gap: "15px",
 
-    background: '$white',
-    borderRadius: '10px'
-})
+  background: "$white",
+  borderRadius: "10px",
+
+  "@bp1": {
+    flexDirection: "column",
+    overflowX: "hidden",
+    overflowY: "auto",
+
+    borderRadius: 5,
+
+  }
+});

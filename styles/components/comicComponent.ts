@@ -16,6 +16,11 @@ export const Container = styled('div', {
 
         '&:hover': {
             transform: 'rotate(-20deg)',
+        },
+
+        "@bp1": {
+            height: 180,
+            width: 120,
         }
 
     },
@@ -29,5 +34,9 @@ export const ComicName = styled('p', {
 
     '&:hover': {
         transform: 'rotate(20deg)',
+    },
+
+    "@bp1": {
+        fontSize: '1rem'
     }
 })
