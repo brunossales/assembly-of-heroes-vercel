@@ -20,7 +20,11 @@ export const Container = styled('div', {
     },
     'img': {
         borderRadius: '10px 10px 0 0',
-    }
+
+        "@bp1": {
+            width: '80vw',
+          },
+    },
 });
 
 export const HeroName = styled('h3', {
