@@ -4,7 +4,7 @@ import { HeroGateway } from "../../domain/gateways/hero.gateway";
 export class ListHeroByNameUseCase {
   constructor(private heroGateway: HeroGateway) {}
 
-  async execute(): Promise<HeroEntity[]> {
-    return await this.heroGateway.nameStartsWith();
+  async execute(nameStartWith: string): Promise<HeroEntity[]> {
+    return await this.heroGateway.nameStartsWith(nameStartWith);
   }
 }

@@ -21,7 +21,7 @@ export class HeroHttpGateway implements HeroGateway{
             }});
          return response.data.data;
     }
-    async nameStartsWith(): Promise<HeroEntity[]> {
+    async nameStartsWith(nameStartWith: string): Promise<HeroEntity[]> {
         const response: HttpResponse = await this.http.request({
             method: 'get',
             url: `${this.endpoint}/characters`,
@@ -29,9 +29,9 @@ export class HeroHttpGateway implements HeroGateway{
                apikey: this.apiKey,
                limit: String(this.limit),
                offset: String(this.offset),
-               nameStartsWith: this.nameStartWith,
+               nameStartsWith: nameStartWith,
            }});
-        return response.data.data;
+        return response.data.data.results;
    }
     async findById(id: Number): Promise<HeroEntity> {
         const response: HttpResponse = await this.http.request({

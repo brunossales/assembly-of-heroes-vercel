@@ -14,6 +14,7 @@ import {
   HomeContainer, 
   PaginationContainer 
 } from '@/styles/pages/home'
+import { QueryClient } from 'react-query';
 
 
 function Home() {
@@ -21,23 +22,22 @@ function Home() {
 
   //usando meu contexto e hook criado por mim
   const { isLoading, data, offset, handleSetOffset } = useRequest();
+  const { data: dataName, isLoading: isLoadingName } = useHeroByName(stringPattern);
 
-  //DataAndSearch vai ser onde vou armazenar o meu data de Heroes
-  //E caso alguem digite ele pesquisa no array o heroi com aquele nome
-  // const dataAndSearch = useMemo(() => {
-  //   if (stringPattern) {
-  //     const search = data?.results.filter((hero) =>
-  //       hero.name.toLowerCase().includes(stringPattern.toLowerCase())
-  //     );
-  //     return search ? search : [];
-  //   }
-  //   return data ? data : [];
-  // }, [stringPattern, data]);
+  const resultData = useMemo(() => {
+    if(!data || !dataName) return [];
+    else if (stringPattern.length > 0) return dataName;
+    return data?.results.map((item) => item)
+  }, [data, stringPattern, dataName]);
   // console.log(data);
+
+  function setHandleText(event: string){
+    setStringPattern(event)
+  }
   
   return (
     <>
-      {isLoading ? <ContainerLoading>Loading...</ContainerLoading>
+      {( isLoading || isLoadingName ) ? <ContainerLoading>Loading...</ContainerLoading>
       : <HomeContainer>
         <PaginationContainer>
           {/* Paginação simples e prática usando o offset para a API 
@@ -51,9 +51,9 @@ function Home() {
           <Button focus={offset === 43} onClick={() => handleSetOffset(43)}>5</Button>
           <Button focus={offset === 53} onClick={() => handleSetOffset(53)}>6</Button>
         </PaginationContainer>
-        <Input placeholder='Search by name' onChange={(event) => setStringPattern(event.target.value)}/>
+        <Input placeholder='Search by name' value={stringPattern} autoFocus={stringPattern.length > 0} onChange={(event) => setHandleText(event.target.value)}/>
         <CardsContainer>
-          {data?.results?.map((hero) => (
+          {resultData.map((hero) => (
             <Link
               key={hero.id}
               href={`/comic/${hero.id}`}
