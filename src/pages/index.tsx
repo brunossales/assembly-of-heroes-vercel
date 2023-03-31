@@ -14,7 +14,6 @@ import {
   HomeContainer, 
   PaginationContainer 
 } from '@/styles/pages/home'
-import { QueryClient } from 'react-query';
 
 
 function Home() {
@@ -29,15 +28,10 @@ function Home() {
     else if (stringPattern.length > 0) return dataName;
     return data?.results.map((item) => item)
   }, [data, stringPattern, dataName]);
-  // console.log(data);
-
-  function setHandleText(event: string){
-    setStringPattern(event)
-  }
   
   return (
     <>
-      {( isLoading || isLoadingName ) ? <ContainerLoading>Loading...</ContainerLoading>
+      {( isLoading ) ? <ContainerLoading>Loading...</ContainerLoading>
       : <HomeContainer>
         <PaginationContainer>
           {/* Paginação simples e prática usando o offset para a API 
@@ -51,7 +45,7 @@ function Home() {
           <Button focus={offset === 43} onClick={() => handleSetOffset(43)}>5</Button>
           <Button focus={offset === 53} onClick={() => handleSetOffset(53)}>6</Button>
         </PaginationContainer>
-        <Input placeholder='Search by name' value={stringPattern} autoFocus={stringPattern.length > 0} onChange={(event) => setHandleText(event.target.value)}/>
+        <Input placeholder='Search by name' value={stringPattern} onChange={(event) => setStringPattern(event.target.value)}/>
         <CardsContainer>
           {resultData.map((hero) => (
             <Link
