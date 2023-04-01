@@ -50,6 +50,10 @@ export const Container = styled("div", {
     "&:hover": {
       transform: 'translate(5px, 12px)'
     },
+    "@bp1": {
+      width: "70vw",
+      fontSize: "1.2rem",
+    },
   },
 });
 
