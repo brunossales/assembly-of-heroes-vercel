@@ -6,15 +6,19 @@ import {
 } from "react";
 import { useQuery } from "react-query";
 
-import { HeroEntityAll } from "../@core/domain/entities/Hero";
+import { HeroEntity, HeroEntityAll } from "../@core/domain/entities/Hero";
 import { FactoryMakeListUseCase } from "../@core/factory/factoryListAll/FactoryMakeListHeroUseCase";
+import { FactoryMakeByNameUseCase } from "../@core/factory/factoryListByName/FactoryMakeListByNameUseCase";
 
 interface RequestContextData {
     offset: number;
+    stringPattern: string;
     handleSetOffset: (value: number) => void;
+    handleSetStringPattern: (value: string) => void;
     error: any;
     isLoading: boolean;
     data: HeroEntityAll | undefined;
+    dataWithName: HeroEntity[] | undefined;
 }
 
 interface RequestProviderProps {
@@ -25,14 +29,24 @@ const RequestContext = createContext<RequestContextData>({} as RequestContextDat
 
 function RequestProvider({ children }: RequestProviderProps) {
     const [offset, setOffSet] = useState(0);
+    const [stringPattern, setStringPattern] = useState('');
 
     //offset como array de dependência para quando o estado mudar a função rodar novamente
     const { isLoading, error, data } = useQuery(['query', offset], async () => {
         return FactoryMakeListUseCase(offset).execute();
     });
 
+    const { data: dataWithName } = useQuery(['queryName', stringPattern, offset], async () => {
+        if (stringPattern.length === 0) return [];
+        return FactoryMakeByNameUseCase(offset).execute(stringPattern);
+    });
+
     function handleSetOffset(value: number){
         setOffSet(value);
+    }
+
+    function handleSetStringPattern(value: string){
+        setStringPattern(value);
     }
 
     return <RequestContext.Provider value={{
@@ -40,7 +54,10 @@ function RequestProvider({ children }: RequestProviderProps) {
         error,
         isLoading,
         offset,
-        handleSetOffset
+        handleSetOffset,
+        dataWithName,
+        handleSetStringPattern,
+        stringPattern
     }}>
         {children}
     </RequestContext.Provider>

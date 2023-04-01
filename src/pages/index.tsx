@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 import { useRequest } from '../contexts/requests';
-import { useHeroByName } from '../hooks/useHeroByName';
 
 import CardHero from '../components/CardHero';
 import { Input } from '../components/Input';
@@ -17,17 +16,14 @@ import {
 
 
 function Home() {
-  const [stringPattern, setStringPattern] = useState('');
-
   //usando meu contexto e hook criado por mim
-  const { isLoading, data, offset, handleSetOffset } = useRequest();
-  const { data: dataName, isLoading: isLoadingName } = useHeroByName(stringPattern);
+  const { isLoading, data, offset, handleSetOffset, dataWithName, handleSetStringPattern, stringPattern } = useRequest();
 
   const resultData = useMemo(() => {
-    if(!data || !dataName) return [];
-    else if (stringPattern.length > 0) return dataName;
+    if(!data || !dataWithName) return [];
+    else if (stringPattern.length > 0) return dataWithName;
     return data?.results.map((item) => item)
-  }, [data, stringPattern, dataName]);
+  }, [data, stringPattern, dataWithName]);
   
   return (
     <>
@@ -45,7 +41,7 @@ function Home() {
           <Button focus={offset === 43} onClick={() => handleSetOffset(43)}>5</Button>
           <Button focus={offset === 53} onClick={() => handleSetOffset(53)}>6</Button>
         </PaginationContainer>
-        <Input placeholder='Search by name' value={stringPattern} onChange={(event) => setStringPattern(event.target.value)}/>
+        <Input placeholder='Search by name' value={stringPattern} onChange={(event) => handleSetStringPattern(event.target.value)}/>
         <CardsContainer>
           {resultData.map((hero) => (
             <Link
