@@ -7,7 +7,7 @@ export const HomeContainer = styled("main", {
   justifyContent: "center",
 
   padding: "0 20px",
-  marginTop: 20,
+  margin: "25px 0"
 });
 
 export const PaginationContainer = styled("div", {
@@ -71,3 +71,17 @@ export const CardsContainer = styled("div", {
     gridTemplateColumns: "repeat(1, 1fr)",
   }
 });
+
+export const Footer = styled("footer", {
+  textAlign: 'center',
+  "h2": {
+    color: "$main",
+    textAlign: 'center',
+
+  }
+})
+
+export const FontName = styled("h3", {
+  color: "$text",
+  cursor: "pointer"
+})
