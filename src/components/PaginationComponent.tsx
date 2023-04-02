@@ -1,4 +1,5 @@
 import { Button, Container } from "@/styles/components/PaginationComponent";
+import { ArrowBendDownLeft, ArrowBendUpRight, Prohibit } from "@phosphor-icons/react";
 import { memo } from "react";
 
 interface PaginationComponentProps {
@@ -28,7 +29,7 @@ function PaginationComponent({
     <Container>
       {
         <Button disabled={current === 1} onClick={() => handleOnPageChange(current - 1)}>
-          {current > 1 ? `⬅` : `🚫`}
+          {current > 1 ? <ArrowBendDownLeft size={20} /> : <Prohibit color="red" size={20} />}
         </Button>
       }
 
@@ -60,7 +61,7 @@ function PaginationComponent({
         </Button>
       {
         <Button disabled={current === pages} onClick={() => handleOnPageChange(current + 1)}>
-          {current < pages ? `➡` : `🚫`}
+          {current < pages ? <ArrowBendUpRight size={20} /> : <Prohibit color="red" size={20} />}
         </Button>
       }
     </Container>
