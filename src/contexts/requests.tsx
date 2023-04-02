@@ -2,7 +2,8 @@ import {
     createContext,
     useContext, 
     ReactNode, 
-    useState
+    useState,
+    useCallback
 } from "react";
 import { useQuery } from "react-query";
 
@@ -41,13 +42,13 @@ function RequestProvider({ children }: RequestProviderProps) {
         return FactoryMakeByNameUseCase(offset).execute(stringPattern);
     });
 
-    function handleSetOffset(value: number){
+    const handleSetOffset = useCallback((value: number) => {
         setOffSet(value);
-    }
+    }, [])
 
-    function handleSetStringPattern(value: string){
+    const handleSetStringPattern = useCallback((value: string) => {
         setStringPattern(value);
-    }
+    }, [])
 
     return <RequestContext.Provider value={{
         data,
