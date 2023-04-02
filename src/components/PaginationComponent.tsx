@@ -27,7 +27,7 @@ function PaginationComponent({
   return (
     <Container>
       {
-        <Button onClick={() => handleOnPageChange(current - 1)}>
+        <Button disabled={current === 1} onClick={() => handleOnPageChange(current - 1)}>
           {current > 1 ? `⬅` : `🚫`}
         </Button>
       }
@@ -59,7 +59,7 @@ function PaginationComponent({
           {pages}
         </Button>
       {
-        <Button onClick={() => handleOnPageChange(current + 1)}>
+        <Button disabled={current === pages} onClick={() => handleOnPageChange(current + 1)}>
           {current < pages ? `➡` : `🚫`}
         </Button>
       }
