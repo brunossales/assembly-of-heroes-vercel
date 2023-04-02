@@ -7,6 +7,10 @@ export const Container = styled("div", {
   
     gap: "15px",
     marginBottom: "30px",
+
+    "@bp1": {
+        gap: "5px",
+    },
 });
 
 export const Button = styled("button", {
@@ -23,6 +27,11 @@ export const Button = styled("button", {
     height: 40,
     width: 40,
     borderRadius: 20,
+    "@bp1": {
+        height: 30,
+        width: 30,
+        borderRadius: 15,
+    },
   
     "&:hover": {
       background: "$text",
