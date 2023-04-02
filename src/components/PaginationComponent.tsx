@@ -32,7 +32,7 @@ function PaginationComponent({ numHeros, offset, handleSetOffset }: PaginationCo
                     1
             </Button>
             {
-                current > 6 && <h3>...</h3>
+                current > 2 && <h3>...</h3>
             }
             
             {
