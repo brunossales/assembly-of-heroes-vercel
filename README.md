@@ -8,7 +8,7 @@
 
 - ## [Official branch link of the project](https://github.com/brunossales/assembly-of-heroes/tree/bruno_saless)
 
-- ## The project has 93 commits!!!
+- ## The project has more of 93 commits!!!
 
 - ## This is a project for any audience that likes the community or is just as curious as the author.
 
